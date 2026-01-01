@@ -1,12 +1,17 @@
 {
-  "name": "vite-starter",
+  "name": "learn-dsa",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "Learn Data Structures & Algorithms.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pushpendra-sharma/learn-dsa"
   },
   "devDependencies": {
     "vite": "^7.2.7"
