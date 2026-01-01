@@ -7,13 +7,15 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/pushpendra-sharma/learn-dsa"
   },
   "devDependencies": {
-    "vite": "^7.2.7"
+    "vite": "^7.2.7",
+    "vitest": "^4.0.16"
   }
 }
