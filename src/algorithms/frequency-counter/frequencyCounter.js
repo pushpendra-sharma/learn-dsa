@@ -24,7 +24,7 @@ export function validAnagram(str1, str2) {
         frequency[char] = (frequency[char] || 0) + 1
     }
 
-    for (const char2 of str1) {
+    for (const char2 of str2) {
         if (!frequency[char2]) return false
         frequency[char2] = frequency[char2] - 1
     }
