@@ -1,5 +1,5 @@
 /**
- * Anagram: An anagram of a string is another string that contains same characters, 
+ * Anagram: An anagram of a string is another string that contains same characters,
  * only the order of characters can be different.=
  */
 
@@ -16,18 +16,21 @@ true
 false
  */
 
+// time complexity - O(n) and space complexity - O(n)
 export function validAnagram(str1, str2) {
-    if (str1.length !== str2.length) return false
-    const frequency = {}
+  if (str1.length !== str2.length) return false;
+  const frequency = {};
 
-    for (const char of str1) {
-        frequency[char] = (frequency[char] || 0) + 1
-    }
+  for (const char of str1) {
+    frequency[char] = (frequency[char] || 0) + 1;
+  }
 
-    for (const char2 of str2) {
-        if (!frequency[char2]) return false
-        frequency[char2] = frequency[char2] - 1
-    }
+  for (const char2 of str2) {
+    if (!frequency[char2]) return false;
+    frequency[char2] = frequency[char2] - 1;
+  }
 
-    return true
+  return true;
 }
+
+// Can we solve using Bit XOR?
