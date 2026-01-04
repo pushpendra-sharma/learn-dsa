@@ -3,6 +3,7 @@ import { expect, test, describe } from "vitest";
 import {
   countUniqueValues,
   countUniqueValuesWithArrayModifyInPlace,
+  isSubsequence,
   subStringProblem,
 } from "../multiplePointers";
 
@@ -83,5 +84,37 @@ describe("subStringProblem() - Needle in a Haystack", () => {
   test("should handle repeating patterns correctly", () => {
     expect(subStringProblem("aaaaa", "bba")).toBe(-1);
     expect(subStringProblem("mississippi", "pi")).toBe(9);
+  });
+});
+
+describe("isSubsequence", () => {
+  test("should return true if str1 is a subsequence of str2", () => {
+    expect(isSubsequence("hello", "hello world")).toBe(true);
+    expect(isSubsequence("sing", "sting")).toBe(true);
+    expect(isSubsequence("abc", "abracadabra")).toBe(true);
+  });
+
+  test("should return true when characters are non-consecutive but in order", () => {
+    expect(isSubsequence("abc", "ahbgdc")).toBe(true);
+  });
+
+  test("should return false if characters are out of order", () => {
+    expect(isSubsequence("abc", "acb")).toBe(false);
+  });
+
+  test("should return false if str1 is not contained in str2", () => {
+    expect(isSubsequence("abc", "defgh")).toBe(false);
+  });
+
+  test("should return true for an empty first string (empty is a subsequence of all)", () => {
+    expect(isSubsequence("", "abc")).toBe(true);
+  });
+
+  test("should return false if str2 is shorter than str1", () => {
+    expect(isSubsequence("longer", "short")).toBe(false);
+  });
+
+  test("should handle exact matches", () => {
+    expect(isSubsequence("testing", "testing")).toBe(true);
   });
 });

@@ -57,3 +57,15 @@ export function subStringProblem(haystack, needle) {
 
   return -1;
 }
+
+// Time Complexity - O(n + m)  Space Complexity - O(1)
+export function isSubsequence(str1, str2) {
+  if (str2.length < str1.length) return false;
+  let count = 0;
+  for (let c of str2) {
+    if (str1[count] === c) {
+      count++;
+    }
+  }
+  return str1.length === count;
+}
