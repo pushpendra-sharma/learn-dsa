@@ -4,6 +4,7 @@ import {
   countUniqueValues,
   countUniqueValuesWithArrayModifyInPlace,
   isSubsequence,
+  moveZeroes,
   subStringProblem,
 } from "../multiplePointers";
 
@@ -116,5 +117,43 @@ describe("isSubsequence", () => {
 
   test("should handle exact matches", () => {
     expect(isSubsequence("testing", "testing")).toBe(true);
+  });
+});
+
+describe("moveZeroes", () => {
+  test("should move zeroes to the end in a mixed array", () => {
+    const nums = [0, 1, 0, 3, 12];
+    moveZeroes(nums);
+    expect(nums).toEqual([1, 3, 12, 0, 0]);
+  });
+
+  test("should handle an array with a single zero", () => {
+    const nums = [0];
+    moveZeroes(nums);
+    expect(nums).toEqual([0]);
+  });
+
+  test("should handle an array with no zeroes", () => {
+    const nums = [1, 2, 3];
+    moveZeroes(nums);
+    expect(nums).toEqual([1, 2, 3]);
+  });
+
+  test("should handle an array of only zeroes", () => {
+    const nums = [0, 0, 0];
+    moveZeroes(nums);
+    expect(nums).toEqual([0, 0, 0]);
+  });
+
+  test("should maintain relative order of non-zero elements", () => {
+    const nums = [4, 2, 4, 0, 0, 3, 0, 5, 1, 0];
+    moveZeroes(nums);
+    expect(nums).toEqual([4, 2, 4, 3, 5, 1, 0, 0, 0, 0]);
+  });
+
+  test("should handle zeroes already at the end", () => {
+    const nums = [1, 2, 0, 0];
+    moveZeroes(nums);
+    expect(nums).toEqual([1, 2, 0, 0]);
   });
 });
