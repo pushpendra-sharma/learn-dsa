@@ -1,5 +1,5 @@
 import { describe, test, expect } from "vitest";
-import { maxSubarraySum } from "../slidingWindow";
+import { findLongestSubstring, maxSubarraySum } from "../slidingWindow";
 
 describe("maxSubarraySum() - Sliding Window Pattern", () => {
   test("should find the maximum sum of a fixed-size subarray", () => {
@@ -23,5 +23,37 @@ describe("maxSubarraySum() - Sliding Window Pattern", () => {
 
   test("should handle cases where all elements are the same", () => {
     expect(maxSubarraySum([4, 4, 4, 4], 2)).toBe(8);
+  });
+});
+
+describe("findLongestSubstring()", () => {
+  test("should return 0 for an empty string", () => {
+    expect(findLongestSubstring("")).toBe(0);
+  });
+
+  test("should find the longest substring with all unique characters", () => {
+    expect(findLongestSubstring("rithmschool")).toBe(7);
+    expect(findLongestSubstring("thisisawesome")).toBe(6);
+  });
+
+  test("should handle strings where the longest is at the beginning", () => {
+    expect(findLongestSubstring("thecatinthehat")).toBe(7);
+  });
+
+  test("should handle strings with many repeating characters", () => {
+    expect(findLongestSubstring("bbbbbb")).toBe(1);
+    expect(findLongestSubstring("pwwkew")).toBe(3);
+  });
+
+  test("should handle strings with multiple unique patterns", () => {
+    expect(findLongestSubstring("longestsubstring")).toBe(8);
+  });
+
+  test("should be case sensitive", () => {
+    expect(findLongestSubstring("AaBbCc")).toBe(6);
+  });
+
+  test("should handle very long strings with diverse characters", () => {
+    expect(findLongestSubstring("thisishowwedoit")).toBe(6);
   });
 });
