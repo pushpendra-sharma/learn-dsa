@@ -28,3 +28,29 @@ export function factorialByRecursion(n) {
   if (n < 2) return 1;
   else return n * factorialByRecursion(n - 1);
 }
+
+
+//  Hellper method recursion
+
+/**
+ * Collect all odd numbers from an array.
+ */
+export function collectOddValues(arr) {
+  let result = [];
+
+  function helper(helperInput) {
+    if (helperInput.length === 0) {
+      return;
+    }
+
+    if (helperInput[0] % 2 !== 0) {
+      result.push(helperInput[0]);
+    }
+
+    helper(helperInput.slice(1));
+  }
+
+  helper(arr);
+
+  return result;
+}
