@@ -15,8 +15,8 @@
     "url": "https://github.com/pushpendra-sharma/learn-dsa"
   },
   "devDependencies": {
-    "@vitest/ui": "^4.0.16",
-    "vite": "^7.2.7",
-    "vitest": "^4.0.16"
+    "@vitest/ui": "^4.1.5",
+    "vite": "^8.0.10",
+    "vitest": "^4.1.5"
   }
 }
